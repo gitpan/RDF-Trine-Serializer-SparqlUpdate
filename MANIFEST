@@ -9,6 +9,6 @@ t/endpoint.t
 t/endpoint2.t
 t/serializer-sparqlu-2.t
 t/serializer-sparqlu.t
-Makefile.PL
 META.yml
 META.json
+Makefile.PL

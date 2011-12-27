@@ -84,7 +84,7 @@ unified_diff;
     my $ua = LWP::UserAgent->new;
 
     my $string = $ser3->serialize_to_string( $model_quad_other );
-    warn Dumper $string;
+    # warn Dumper $string;
     my ($type) = $ser4_atomic->media_types;
 
     my $req = HTTP::Request->new(POST => 'http://localhost/?sparql');
@@ -94,5 +94,5 @@ unified_diff;
     is( $sparql_model->size, 0, 'Model empty before request');
     my $resp = $ua->request( $req );
     is( $sparql_model->size, 4, 'request addded 4 statements.');
-    warn Dumper $ser4->serialize_to_string( $sparql_model );
+    # warn Dumper $ser4->serialize_to_string( $sparql_model );
 }

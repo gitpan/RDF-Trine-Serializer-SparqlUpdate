@@ -53,7 +53,7 @@ use RDF::Trine::Serializer::NTriples;
 our ($VERSION);
 
 BEGIN {
-    $VERSION                                                  = '0.001';
+    $VERSION                                                  = '0.002';
     $RDF::Trine::Serializer::serializer_names{'sparqlu'}      = __PACKAGE__;
     $RDF::Trine::Serializer::serializer_names{'sparqlupdate'} = __PACKAGE__;
     $RDF::Trine::Serializer::format_uris{'http://www.w3.org/Submission/SPARQL-Update/'}

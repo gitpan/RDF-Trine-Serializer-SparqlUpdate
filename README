@@ -7,10 +7,7 @@ SYNOPSIS
         $query = $sparqlu->serialize_to_string( undef, delete => $iter );
 
         my $sparqlu_quad = RDF::Trine::Serializer->new('sparqlu', quad_semantics => 1 );
-        $fh = $sparqlu_quad->serialize_to_io( $model );
-        while (<$fh>) {
-            print $_;
-        }
+        $query = $sparqlu_quad->insert( $model );
 
 DESCRIPTION
     TODO
@@ -19,28 +16,21 @@ METHODS
     Beyond the methods documented below, this class inherits methods from
     the RDF::Trine::Serializer class.
 
-  `new( [quad_semantics => (0|1)], [atomic => (0|1)] )'
+  `new( [quad_semantics => (0|1)] )'
     Returns a new SPARQL/Update serializer object.
 
     If ` quad_semantics ' is set, contexts/graphs will be considered for
     INSERT and DELETE clauses. Otherwise, the serializer works on the union
     graph of the model.
 
-    If ` atomic ' is set, every statement is wrapped in it's own
-    INSERT/DELETE clause.
-
   `serialize_to_string ( $data, %opts )'
     Coerces both $data and $opts{delete} to a model and calls
     `serialize_model_to_string' with those.
 
-  `serialize_to_file ( $fh, $data, %opts )'
+  `serialize_to_string ( $fh, $data, %opts )'
     Coerces both $data and $opts{delete} to a model and calls
     `serialize_model_to_string' with those and writes the resulting string
     to filehandle $fh.
-
-  `serialize_to_io( $data, %opts )'
-    Returns an IO::Handle with the `$data' and $opts{delete} serialized to
-    atomic SPARQL/U clauses
 
   `serialize_model_to_string ( $model )'
     Serializes the `$model' to SPARQL/Update, returning the result as a
@@ -69,11 +59,7 @@ METHODS
 
     Alias for serialize_to_string.
 
-  `serialize_model_to_io( $model )'
-    TODO Returns an IO::Handle with the `$model' serialized to atomic
-    SPARQL/U clauses
-
-  `_serialize_data_to_ntriples( $data )'
+  `_serialize_data( $data )'
     Turns $data into a string of N-Triples.
 
   `_to_model( $data )'
@@ -82,8 +68,7 @@ METHODS
   `_create_clause( $type, $data, [$graph] )'
     Creates a SPARQL/U 'INSERT' or 'DELETE' clause, depending on $type.
 
-    `$data' can be anything that _serialize_data_to_ntriples can coerce to
-    N-Triples.
+    `$data' can be anything that _serialize_data can coerce to N-Triples.
 
     If `$graph' is given, clauses take the form
 

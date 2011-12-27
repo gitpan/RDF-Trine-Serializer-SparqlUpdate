@@ -24,7 +24,7 @@ $model2->add_statement( $st2 );
 my $ser = RDF::Trine::Serializer::SparqlUpdate->new( quad_semantics => 1 );
 
 # warn Dumper $ser->_create_clause( 'INSERT', $st0 );
-warn Dumper $ser->serialize_iterator_to_string( $st0, delete => $st2 );
+# warn Dumper $ser->serialize_iterator_to_string( $st0, delete => $st2 );
 # warn Dumper $ser->_serialize_data( $model );
 # my $iter = $model->get_contexts;
 # while ($_ = $iter->next) {

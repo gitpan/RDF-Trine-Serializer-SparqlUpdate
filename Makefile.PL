@@ -2,21 +2,24 @@
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
+  'PL_FILES' => {},
+  'INSTALLDIRS' => 'site',
   'NAME' => 'RDF::Trine::Serializer::SparqlUpdate',
+  'EXE_FILES' => [],
   'VERSION_FROM' => 'lib/RDF/Trine/Serializer/SparqlUpdate.pm',
   'PREREQ_PM' => {
-                   'LWP::Protocol::PSGI' => 0,
-                   'Moose' => '2.0',
+                   'Try::Tiny' => '0.09',
+                   'Term::ANSIColor' => 0,
+                   'YAML::XS' => 0,
                    'Pod::Readme' => 0,
-                   'Pod::Select' => 0,
+                   'String::Diff' => 0,
                    'RDF::Endpoint' => '0.04',
+                   'LWP::Protocol::PSGI' => 0,
                    'RDF::Trine' => '0.136',
                    'SUPER' => 0,
-                   'String::Diff' => 0,
-                   'Try::Tiny' => '0.09'
-                 },
-  'INSTALLDIRS' => 'site',
-  'EXE_FILES' => [],
-  'PL_FILES' => {}
+                   'IO::Handle::Iterator' => 0,
+                   'Pod::Select' => 0,
+                   'Moose' => '2.0'
+                 }
 )
 ;

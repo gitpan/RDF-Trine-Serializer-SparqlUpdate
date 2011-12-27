@@ -8,9 +8,9 @@ my $class = Module::Build->subclass(
             use Pod::Select;
  
             my $self = shift;
- 
             unlink 'README.pod';
             unlink 'README';
+ 
             podselect({ -output => 'README.pod' },
                 'lib/RDF/Trine/Serializer/SparqlUpdate.pm');
  
@@ -33,6 +33,7 @@ my $build = $class->new(
         'Moose' => '2.0',
         'RDF::Trine' => '0.136',
         'Try::Tiny' => '0.09',
+        'IO::Handle::Iterator' => 0,
         # 'Data::UUID' => '1.217',
         # 'File::Path' => 0,
         # 'File::Temp' => 0,,
@@ -56,8 +57,10 @@ my $build = $class->new(
     },
     build_requires => {
         'String::Diff' => 0,
+        'Term::ANSIColor' => 0,
         'RDF::Endpoint' => '0.04',
         'SUPER' => 0,
+        'YAML::XS' => 0,
         'LWP::Protocol::PSGI' => 0,
         'Pod::Readme' => 0,
         'Pod::Select' => 0,

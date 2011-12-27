@@ -1,5 +1,5 @@
 # use Test::More tests => 5;
-use Test::More skip_all => 'no real tests right now';
+use Test::More skip_all => 'TODO: write actual tests';
 use Test::Differences;
 BEGIN { use_ok('RDF::Trine::Serializer::SparqlUpdate') };
 
@@ -52,7 +52,7 @@ sub eq_or_diff_without_nl {
     return eq_or_diff( @_ );
 }
 unified_diff;
-# {
+{
     # my $test_iter = $model_quad_other->get_statements( undef, undef, undef, $default );
     # warn Dumper $ser4_atomic->serialize_to_string( $model_quad_other );
     # warn Dumper $ser3_atomic->serialize_to_string( $model_quad_other );
@@ -71,7 +71,7 @@ unified_diff;
     # warn Dumper $clos->();
     # warn Dumper $clos->();
     # warn Dumper $clos->();
-# }
+}
 # {
 #     my ($rh, $wh);
 #     pipe($rh, $wh);
